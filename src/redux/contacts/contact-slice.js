@@ -29,7 +29,7 @@ const contactsSlice = createSlice({
             })
             .addCase(fetchAddContact.fulfilled, (store, { payload }) => {
                 store.isloading = false;
-                store.items.push(payload);
+                store.items?.push(payload);
             })
             .addCase(fetchAddContact.rejected, (store, { payload }) => {
                 store.isloading = false;
@@ -40,7 +40,7 @@ const contactsSlice = createSlice({
             })
             .addCase(fetchDeleteContact.fulfilled, (store, { payload }) => {
                 store.isloading = false;
-                store.items.filter(
+                store.items?.filter(
                 contact => contact.id !== payload.id)   
             })
             .addCase(fetchDeleteContact.rejected, (store, { payload }) => {
