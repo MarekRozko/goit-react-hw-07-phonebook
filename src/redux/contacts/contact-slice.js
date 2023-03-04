@@ -40,8 +40,8 @@ const contactsSlice = createSlice({
             })
             .addCase(fetchDeleteContact.fulfilled, (store, { payload }) => {
                 store.isloading = false;
-                store.items?.filter(
-                contact => contact.id !== payload.id)   
+                const index = store.items.findIndex(item => item.id === payload);
+                store.items.splice(index, 1);
             })
             .addCase(fetchDeleteContact.rejected, (store, { payload }) => {
                 store.isloading = false;

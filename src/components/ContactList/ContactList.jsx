@@ -1,6 +1,6 @@
 
 import styles from "../ContactList/contactList.module.css";
-
+import PropTypes from 'prop-types';
 
 const ContactsList = ({removeContact, items}) => {
 
@@ -22,3 +22,15 @@ const ContactsList = ({removeContact, items}) => {
   
 
 export default ContactsList;
+ContactsList.defaultProps = {
+    items: []
+}
+
+ContactsList.propTypes = {
+    removeContact: PropTypes.func.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name:  PropTypes.string.isRequired,
+        phone:  PropTypes.string.isRequired,
+    }))
+}
